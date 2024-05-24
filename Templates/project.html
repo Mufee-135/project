@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Projects</title>
+</head>
+<body>
+    <h1>Projects</h1>
+    
+    <ul>
+        {% for project in projects %}
+            <li>
+                <h2>{{ project.title }}</h2>
+                <p>{{ project.description }}</p>
+              
+                {% if project.link %}
+                    <p><a href="C:\django project\taskproject\taskproject">Project Link</a></p>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Add New Project</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add</button>
+    </form>
+</body>
+</html>
+

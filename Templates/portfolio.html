@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portfolio</title>
+</head>
+<body>
+    <h1>Portfolio</h1>
+    
+    <ul>
+        {% for item in item %}
+            <li>
+                <h2>{{ item.title }}</h2>
+                <p>{{ item.description }}</p>
+                
+              
+                {% if item.link %}
+                    <p><a href="{{ item.link }}">Project Link</a></p>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Add New Item</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add</button>
+    </form>
+</body>
+</html>
